@@ -1,3 +1,8 @@
+multi-slot-transcluding-directive-for-angular
+=============================================
+
+Transcluding is nice. How about transcluding more than one thing?
+
     npm install watchify -g
     npm install
     watchify test.js -o all.js -v
