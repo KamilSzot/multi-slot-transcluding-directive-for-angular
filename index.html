@@ -1,0 +1,50 @@
+<html>
+<head>
+  <script src="all.js"></script>
+</head>
+<body ng-app="App">
+  <div ng-controller="MainCtrl">
+    Hello {{what}}!!!
+
+    <input ng-model="what">
+
+    <outer multi-slot some="Value imported into isolate scope">
+      <div for-slot="c1"><embolden>c1 {{what}}</embolden> &lt;- got transcluded</div>
+      <div for-slot="c2">
+        c2 {{what}} &lt;- got transcluded
+
+        <outer multi-slot some="Value imported into isolate scope">
+          <div for-slot="c1"><embolden>c1 {{what}}</embolden> &lt;- got transcluded</div>
+          <div for-slot="c2">
+            c2 {{what}} &lt;- got transcluded</div>
+        </outer>
+      </div>
+    </outer>
+
+
+
+  </div>
+
+
+<script type="text/ng-template" id="outer.html">
+
+  <fieldset>
+    <legend>Directive: outer, {{some}}</legend>
+    <fieldset>
+      <legend>slot 1</legend>
+      <div slot="c1"></div>
+    </fieldset>
+    <fieldset>
+      <legend>slot 2</legend>
+      <div slot="c2"></div>
+    </fieldset>
+  </fieldset>
+
+</script>
+
+<script type="text/ng-template" id="embolden.html">
+  <b><ng-transclude></ng-transclude></b>
+</script>
+
+</body>
+</html>
