@@ -43,14 +43,9 @@ angular
 
   .directive('forSlot', function() {
     return {
-      // transclude: true,
       require: '^^multiSlot',
       link: function(scope, el, attrs, ctrl, transclude) {
-        ctrl.slots[attrs.forSlot].append(el);
-        // transclude(function(clone) {
-        //   ctrl.slots[attrs.forSlot].append(clone);
-        //   el.remove();
-        // });
+        ctrl.slots[attrs.forSlot].replaceWith(el);
       }
     }
   })
